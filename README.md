@@ -43,7 +43,7 @@
 #!/bin/bash
 
 sudo chmod a+rw /dev/ttyACM0
-nohup python3 ~/code/xvrn/blocktime/src/blocktime.py lcd
+nohup python3 ~/code/xvrn/blocktime/src/blocktime.py lcd &
 ```
 
 - Add aliases in your `.bashrc` and run `source .bashrc`:
