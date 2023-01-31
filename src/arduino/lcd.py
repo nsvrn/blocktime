@@ -7,7 +7,7 @@ def print_to_lcd(p: serial.Serial, fetch_freq, page_delay):
   if p.isOpen():
     while (True):
       stats = get_btc_stats()
-      page_delay = 5  # seconds
+      page_delay = int(page_delay)
       repeat_times = int( (int(fetch_freq)*60)/(page_delay*len(stats)) )
       for _ in range(0, repeat_times):
         for k, v in stats.items():
