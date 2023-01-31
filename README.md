@@ -14,6 +14,7 @@
 ```
 - Setup `settings.conf` (copy from at same folder location):
 ```
+    cd src &&
     cp settings.sample.conf settings.conf
 ```
 - After you connect via USB you will have to set the read/write permissions(use name of your serial device instead of `/dev/ttyACM0`):
@@ -28,7 +29,6 @@
 
 - The data updates every x minutes as setup in the `settings.conf`
 ```
-    cd src &&
     python3 blocktime.py console
 ```
 ![alt blocktime_console](blocktime_console.png)
