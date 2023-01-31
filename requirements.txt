@@ -1,2 +1,4 @@
 loguru
 rich
+pyserial
+requests

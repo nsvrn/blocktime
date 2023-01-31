@@ -26,13 +26,13 @@
 - The data updates every x minutes as setup in the `settings.conf`
 ```
     cd src &&
-    python3 blocktime console
+    python3 blocktime.py console
 ```
 ![alt blocktime_console](blocktime_console.png)
 
 
 ```
-    python3 blocktime lcd
+    python3 blocktime.py lcd
 ```
 - Video at the end for lcd display
 ---
