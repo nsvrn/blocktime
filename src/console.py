@@ -33,7 +33,7 @@ def _table(stats, is_updated=False, updates_in=None):
 
 def load(cfg):
     stats, is_updated = None, False
-    ff = int(cfg['fetch_freq']) * 60
+    ff = int(cfg['fetch_freq'].split(" ")[0]) * 60
     with Live(_table(stats, is_updated), refresh_per_second=1) as live:
         while(True):
             for i in range(0, ff):
