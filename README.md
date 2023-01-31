@@ -12,7 +12,10 @@
     cd blocktime &&
     pip install -r requirements.txt
 ```
-- Setup `settings.conf` (copy from `settings.sample.conf` as same folder location)
+- Setup `settings.conf` (copy from at same folder location):
+```
+    cp settings.sample.conf settings.conf
+```
 - After you connect via USB you will have to set the read/write permissions(use name of your serial device instead of `/dev/ttyACM0`):
 ```
     chmod a+rw /dev/ttyACM0
