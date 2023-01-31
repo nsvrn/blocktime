@@ -51,7 +51,7 @@ nohup python3 ~/code/xvrn/blocktime/src/blocktime.py lcd &
 
 - Add aliases in your `.bashrc` and run `source .bashrc`:
 ```
-alias btcmd="python3 ~/code/blocktime/blocktime.py console"
+alias btcmd="python3 ~/code/blocktime/src/blocktime.py console"
 alias btlcd="~/code/blocktime/bt_to_lcd.sh"
 ```
 
