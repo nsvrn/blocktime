@@ -29,4 +29,5 @@
 ```
     python3 blocktime lcd
 ```
-![alt blocktime_lcd](blocktime_lcd.mp4)
+<video src="https://user-images.githubusercontent.com/120062368/215665950-1288a0fc-420f-4e0b-b3a7-4f6c2da62705.mp4">
+
