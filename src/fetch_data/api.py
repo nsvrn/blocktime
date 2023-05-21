@@ -1,6 +1,7 @@
 import requests, json
 from flask import Flask
 from datetime import datetime as dtm
+import pytz
 
 app = Flask(__name__)
 
@@ -22,8 +23,9 @@ def get_btc_stats():
     hrate = int(int(stats['hashrate_24h'])/(10**18)) # exa=10^18
     result = {}
     
-    dt = dtm.now().strftime('%a %b %-d')
-    ts = dtm.now().strftime('%-I.%M%p')
+    tz = pytz.timezone('US/Eastern')
+    dt = dtm.now(tz).strftime('%a %b %-d')
+    ts = dtm.now(tz).strftime('%-I.%M%p')
     result['1'] = f'${price:,}'
     result['2'] = f'#{blocks:,}'
     result['3'] = f'{sfd:,} sats/$'
