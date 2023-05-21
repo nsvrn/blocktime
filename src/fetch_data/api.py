@@ -26,15 +26,16 @@ def get_btc_stats():
     tz = pytz.timezone('US/Eastern')
     dt = dtm.now(tz).strftime('%a %b %-d')
     ts = dtm.now(tz).strftime('%-I.%M%p')
-    result['1'] = f'${price:,}'
-    result['2'] = f'#{blocks:,}'
-    result['3'] = f'{sfd:,} sats/$'
-    result['4'] = f'{fee} sat/vB'
-    result['5'] = f'{hrate} EH/s'
-    result['6'] = f'{diff:.2E}'
-    result['7'] = f'{nodes:,} nodes'
-    result['8'] = f'{dt}'
-    result['9'] = f'~{ts}'
+    result['1'] = f'#{blocks:,}'
+    result['2'] = '------------'
+    result['3'] = f'${price:,}'
+    result['4'] = f'{sfd:,} s/$'
+    result['5'] = f'{fee} s/vB'
+    result['6'] = f'{hrate} EH/s'
+    result['7'] = f'{diff:.2E}'
+    result['8'] = f'{nodes:,} nodes'
+    result['9'] = f'{dt}'
+    result['10'] = f'~{ts}'
     
     response = app.response_class(
         response=json.dumps(result),
