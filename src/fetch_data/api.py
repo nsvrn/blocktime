@@ -11,7 +11,6 @@ def get_all_stats():
     stats = requests.get(url).json()['data']
     return stats
 
-@app.route("/")
 def get_btc_stats():
     stats = get_all_stats()
     price = stats['market_price_usd']
@@ -36,12 +35,36 @@ def get_btc_stats():
     result['8'] = f'{nodes:,} nodes'
     result['9'] = f'{dt}'
     result['10'] = f'~{ts}'
+    return result
     
+
+@app.route("/t5s")
+def t5s():
+    '''
+        for lilygo t5s 2.7 inch eink display
+    '''
+    result = get_btc_stats()
     response = app.response_class(
         response=json.dumps(result),
         mimetype='application/json'
     )
     return response
+
+
+@app.route("/t5")
+def t5():
+    '''
+        For lilygo t5 2.13 inch eink display
+    '''
+    result = get_btc_stats()
+    del_keys = ['2', '7', '8']
+    for k in del_keys: del result[k]
+    response = app.response_class(
+        response=json.dumps(result),
+        mimetype='application/json'
+    )
+    return response
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8090, debug=False)
