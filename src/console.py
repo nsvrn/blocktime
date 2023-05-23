@@ -6,12 +6,8 @@ import numpy as np
 from datetime import datetime as dtm
 
 
-COLORS = ['red', 'blue', '#00d7af']
-BCOLOR = '#f2a900'
-
-def _table(stats, is_updated=False, updates_in=None):
+def _table(stats, colors):
     if stats: 
-        if is_updated: np.random.shuffle(COLORS)
         tbl = Table(show_header=False, show_lines=True, border_style='white')
         datestr = dtm.now().strftime('%a %b %-d')
         timestr = dtm.now().strftime('%-I:%M %p')        
@@ -24,7 +20,7 @@ def _table(stats, is_updated=False, updates_in=None):
         alternate = False
         for v in vlist: 
             alternate = not alternate
-            clr = COLORS[0+int(alternate)]
+            clr = colors[0+int(alternate)]
             v3 = f'[{clr}]{v[1]}'
             if 'nodes' in v[0]: v3 = '[#f2a900]  :heart:'
             tbl.add_row(v[0], f'[{clr}]{v[1]}', v[2], f'[{clr}]{v[3]}')
@@ -32,9 +28,10 @@ def _table(stats, is_updated=False, updates_in=None):
 
 
 def load(cfg):
-    stats, is_updated = None, False
+    stats = None
     ff = int(cfg['fetch_freq']) * 60
-    with Live(_table(stats, is_updated), refresh_per_second=1) as live:
+    colors = cfg['font_colors']
+    with Live(_table(stats, colors), refresh_per_second=1) as live:
         while(True):
             for i in range(0, ff):
                 if i == 0: 
@@ -42,6 +39,6 @@ def load(cfg):
                     is_updated = True
                 else:
                     is_updated = False
-                live.update(_table(stats, is_updated, ff-i ))
+                live.update(_table(stats, colors))
                 time.sleep(1)
 
