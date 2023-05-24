@@ -57,5 +57,5 @@ alias btlcd="~/code/blocktime/bt_to_lcd.sh"
 
 ---
 
-<video src="https://user-images.githubusercontent.com/120062368/215665950-1288a0fc-420f-4e0b-b3a7-4f6c2da62705.mp4"> </video>
+https://user-images.githubusercontent.com/120062368/215665950-1288a0fc-420f-4e0b-b3a7-4f6c2da62705.mp4
 

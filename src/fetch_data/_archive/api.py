@@ -26,21 +26,18 @@ def get_btc_stats(shorten=False, skip_keys=[]):
     dt = dtm.now(tz).strftime('%a %b %-d')
     ts = dtm.now(tz).strftime('%-I.%M%p')
     
-    result['1'] = f'#{blocks:,}'
-    result['2'] = '------------'
-    result['3'] = f'${price:,}'
-    result['4'] = f'{sfd:,} s/$'
-    result['5'] = f'{fee} s/vB'
-    result['6'] = f'{hrate} EH/s'
-    result['7'] = f'{diff:.2E}'
-    result['8'] = f'{nodes:,} nodes'
-    result['9'] = f'{dt}'
-    result['10'] = f'~{ts}'
+    result['height'] = f'#{blocks:,}'
+    result['price'] = f'${price:,}'
+    result['sats_per_dollar'] = f'{sfd:,} s/$'
+    result['fee'] = f'{fee} s/vB'
+    result['hrate'] = f'{hrate} EH/s'
+    result['diff'] = f'{diff:.2E}'
+    result['nodes'] = f'{nodes:,} nodes'
+    result['dt'] = f'{dt}'
+    result['ts'] = f'~{ts}'
 
-    if shorten: 
-        result['9'] = dtm.now(tz).strftime('%a %m/%-d')
-        result['2'] = '---------'
-        for k in skip_keys: del result[k]
+    if shorten: result['dt'] = dtm.now(tz).strftime('%a %m/%-d')
+    for k in skip_keys: del result[k]
 
     return result
     
@@ -63,7 +60,7 @@ def t5():
     '''
         For lilygo t5 2.13 inch eink display
     '''
-    sk = ['7', '8'] # skip keys
+    sk = ['diff', 'nodes'] # skip keys
     result = get_btc_stats(shorten=True, skip_keys=sk)
     
     response = app.response_class(
