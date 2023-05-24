@@ -1,5 +1,10 @@
 #### ₿locktime
 
+![alt blocktime_console](blocktime_console.png)
+
+https://user-images.githubusercontent.com/120062368/215665950-1288a0fc-420f-4e0b-b3a7-4f6c2da62705.mp4
+
+
 ---
 ##### Setup
 - For setting up arduino and LCD display:
@@ -31,8 +36,6 @@
 ```
     python3 blocktime.py console
 ```
-![alt blocktime_console](blocktime_console.png)
-
 
 ```
     python3 blocktime.py lcd
@@ -55,7 +58,4 @@ alias btcmd="python3 ~/code/blocktime/src/blocktime.py console"
 alias btlcd="~/code/blocktime/bt_to_lcd.sh"
 ```
 
----
-
-https://user-images.githubusercontent.com/120062368/215665950-1288a0fc-420f-4e0b-b3a7-4f6c2da62705.mp4
 
